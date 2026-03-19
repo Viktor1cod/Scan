@@ -1,0 +1,49 @@
+.why-us {
+  padding: 60px 0;
+}
+
+.why-us__title {
+  margin: 0 0 50px;
+  font-size: 42px;
+  font-weight: 900;
+}
+
+.why-us__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.why-us__card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 22px;
+  min-height: 220px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.why-us__icon {
+  font-size: 26px;
+  color: #029491;
+  margin-bottom: 16px;
+}
+
+.why-us__card h3 {
+  margin: 0 0 14px;
+  font-size: 20px;
+}
+
+.why-us__card p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.why-us__illustration {
+  margin-top: 50px;
+  height: 320px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
