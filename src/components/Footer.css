@@ -20,3 +20,25 @@
   line-height: 1.7;
   font-size: 14px;
 }
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 16px 0;
+  }
+
+  .footer__inner {
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .footer__logo {
+    font-size: 18px;
+  }
+
+  .footer__info {
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: right;
+  }
+}

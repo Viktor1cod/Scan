@@ -111,3 +111,84 @@
   background: #d2d2d2;
   color: #000;
 }
+
+@media (max-width: 768px) {
+  .tariffs {
+    padding: 30px 0 40px;
+  }
+
+  .tariffs__title {
+    margin-bottom: 24px;
+    font-size: 26px;
+    line-height: 1.1;
+  }
+
+  .tariffs__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .tariff-card {
+    border-radius: 12px;
+  }
+
+  .tariff-card__top {
+    padding: 16px;
+  }
+
+  .tariff-card__top h3 {
+    font-size: 18px;
+  }
+
+  .tariff-card__top p {
+    font-size: 11px;
+  }
+
+  .tariff-card__body {
+    padding: 16px;
+  }
+
+  .tariff-card__price-row {
+    gap: 10px;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+
+  .tariff-card__price {
+    font-size: 24px;
+  }
+
+  .tariff-card__old-price {
+    font-size: 13px;
+  }
+
+  .tariff-card__installment {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .tariff-card__features {
+    margin-top: 18px;
+  }
+
+  .tariff-card__features p {
+    font-size: 13px;
+  }
+
+  .tariff-card__features ul {
+    padding-left: 16px;
+  }
+
+  .tariff-card__features li {
+    margin-bottom: 8px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .btn-blue,
+  .btn-gray {
+    margin-top: 18px;
+    padding: 12px;
+    font-size: 13px;
+  }
+}

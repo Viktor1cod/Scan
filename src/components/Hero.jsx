@@ -1,3 +1,4 @@
+import heroImg from "../assets/images/hero.png";
 import "./Hero.css";
 
 function Hero() {
@@ -18,7 +19,7 @@ function Hero() {
         </div>
 
         <div className="hero__image">
-          <div className="hero__image-box">Иллюстрация</div>
+          <img src={heroImg} alt="Иллюстрация сервиса" className="hero__img" />
         </div>
       </div>
     </section>

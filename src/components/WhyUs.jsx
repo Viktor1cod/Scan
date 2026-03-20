@@ -1,3 +1,4 @@
+import whyUsImg from "../assets/images/why-us.png";
 import "./WhyUs.css";
 
 const features = [
@@ -32,7 +33,7 @@ function WhyUs() {
         </div>
 
         <div className="why-us__illustration">
-          Большая декоративная иллюстрация
+          <img src={whyUsImg} alt="Почему мы" className="why-us__img" />
         </div>
       </div>
     </section>
