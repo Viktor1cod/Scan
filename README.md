@@ -45,13 +45,13 @@ src/
 1. Склонировать репозиторий:
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/Viktor1cod/Scan.git
 ```
 
 2. Перейти в папку проекта:
 
 ```bash
-cd your-repo
+cd SCAN
 ```
 
 3. Установить зависимости:
