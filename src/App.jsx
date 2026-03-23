@@ -6,6 +6,7 @@ import WhyUs from "./components/WhyUs";
 import Tariffs from "./components/Tariffs";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import SearchPage from "./pages/SearchPage";
 
 function HomePage({ isAuth, onLogout }) {
   const currentPlan = "Beginner";
@@ -24,15 +25,10 @@ function HomePage({ isAuth, onLogout }) {
 }
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
 
-  const handleLogin = () => {
-    setIsAuth(true);
-  };
-
-  const handleLogout = () => {
-    setIsAuth(false);
-  };
+  const handleLogin = () => setIsAuth(true);
+  const handleLogout = () => setIsAuth(false);
 
   return (
     <Routes>
@@ -43,11 +39,13 @@ function App() {
       <Route
         path="/login"
         element={
-          isAuth ? (
-            <Navigate to="/" replace />
-          ) : (
-            <Login onLogin={handleLogin} />
-          )
+          isAuth ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />
+        }
+      />
+      <Route
+        path="/search"
+        element={
+          isAuth ? <SearchPage isAuth={isAuth} /> : <Navigate to="/login" replace />
         }
       />
     </Routes>

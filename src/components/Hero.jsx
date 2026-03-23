@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Hero.css";
 import heroImg from "../assets/images/hero.png";
 
@@ -16,9 +17,9 @@ function Hero({ isAuth }) {
           </p>
 
           {isAuth && (
-            <button type="button" className="hero__button">
+            <Link to="/search" className="hero__button">
               Запросить данные
-            </button>
+            </Link>
           )}
         </div>
 
