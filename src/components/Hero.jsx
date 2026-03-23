@@ -1,7 +1,7 @@
-import heroImg from "../assets/images/hero.png";
 import "./Hero.css";
+import heroImg from "../assets/images/hero.png";
 
-function Hero() {
+function Hero({ isAuth }) {
   return (
     <section className="hero">
       <div className="container hero__inner">
@@ -15,11 +15,15 @@ function Hero() {
             на электронную почту.
           </p>
 
-          <button className="hero__button">Запросить данные</button>
+          {isAuth && (
+            <button type="button" className="hero__button">
+              Запросить данные
+            </button>
+          )}
         </div>
 
         <div className="hero__image">
-          <img src={heroImg} alt="Иллюстрация сервиса" className="hero__img" />
+          <img src={heroImg} alt="Анализ компании" className="hero__img" />
         </div>
       </div>
     </section>
