@@ -1,19 +1,115 @@
-# React + Vite
+# 📊 SCAN — сервис поиска публикаций
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-приложение для поиска и анализа публикаций о компаниях по ИНН.
+Проект реализован на React с использованием Vite.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Возможности
 
-## React Compiler
+* 🔍 Поиск публикаций по ИНН компании
+* 📈 Отображение сводки по найденным данным
+* 📰 Просмотр списка документов
+* 🏷️ Фильтрация и отображение тегов (новости, анонсы, сводки)
+* 📥 Ленивaя загрузка результатов (lazy loading)
+* 🔐 Авторизация пользователя
+* 📱 Адаптивная верстка (desktop + mobile)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧩 Технологии
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React
+* React Router
+* Vite
+* CSS (адаптивная верстка)
+* JavaScript (ES6+)
+
+---
+
+## 📂 Структура проекта
+
+```bash
+src/
+  components/   # Переиспользуемые компоненты (Header, Hero, Tariffs и др.)
+  pages/        # Страницы (Login, SearchPage)
+  assets/       # Картинки и ресурсы
+  App.jsx
+  main.jsx
+```
+
+---
+
+## ⚙️ Установка и запуск
+
+1. Склонировать репозиторий:
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+```
+
+2. Перейти в папку проекта:
+
+```bash
+cd your-repo
+```
+
+3. Установить зависимости:
+
+```bash
+npm install
+```
+
+4. Запустить проект:
+
+```bash
+npm run dev
+```
+
+После запуска открой в браузере:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 🔑 Основной функционал
+
+### Авторизация
+
+* Страница входа
+* Имитация авторизации
+* Разный интерфейс для авторизованного пользователя
+
+### Поиск
+
+* Ввод параметров (ИНН, даты, количество документов)
+* Валидация формы
+* Кнопка поиска активна только при корректных данных
+
+### Результаты
+
+* Лоадер при загрузке
+* Сводка по периодам (горизонтальный скролл)
+* Карточки документов
+* Кнопка «Показать больше»
+
+---
+
+## 📌 Особенности
+
+* Реализована клиентская валидация формы
+* Используется ленивaя загрузка результатов
+* Интерфейс адаптирован под мобильные устройства (375px)
+* Архитектура проекта разбита на компоненты
+
+---
+
+## ⚠️ Примечание
+
+Папка `node_modules` не включена в репозиторий.
+
 
 
 ## Кнопка «Поиск» — как активировать
