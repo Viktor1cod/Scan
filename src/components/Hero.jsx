@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import "./Hero.css";
 import heroImg from "../assets/images/hero.png";
 
-function Hero({ isAuth }) {
+function Hero() {
+  const { isAuth } = useAuth();
   return (
     <section className="hero">
       <div className="container hero__inner">
