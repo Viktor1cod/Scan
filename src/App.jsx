@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "./context/AuthContext";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import WhyUs from "./components/WhyUs";
@@ -8,16 +8,16 @@ import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import SearchPage from "./pages/SearchPage";
 
-function HomePage({ isAuth, onLogout }) {
+function HomePage() {
   const currentPlan = "Beginner";
 
   return (
     <>
-      <Header isAuth={isAuth} onLogout={onLogout} />
+      <Header />
       <main>
-        <Hero isAuth={isAuth} />
+        <Hero />
         <WhyUs />
-        <Tariffs isAuth={isAuth} currentPlan={currentPlan} />
+        <Tariffs currentPlan={currentPlan} />
       </main>
       <Footer />
     </>
@@ -25,28 +25,18 @@ function HomePage({ isAuth, onLogout }) {
 }
 
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
-
-  const handleLogin = () => setIsAuth(true);
-  const handleLogout = () => setIsAuth(false);
+  const { isAuth } = useAuth();
 
   return (
     <Routes>
-      <Route
-        path="/"
-        element={<HomePage isAuth={isAuth} onLogout={handleLogout} />}
-      />
+      <Route path="/" element={<HomePage />} />
       <Route
         path="/login"
-        element={
-          isAuth ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />
-        }
+        element={isAuth ? <Navigate to="/" replace /> : <Login />}
       />
       <Route
         path="/search"
-        element={
-          isAuth ? <SearchPage isAuth={isAuth} /> : <Navigate to="/login" replace />
-        }
+        element={isAuth ? <SearchPage /> : <Navigate to="/login" replace />}
       />
     </Routes>
   );
