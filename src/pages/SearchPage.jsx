@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { mockHistograms, mockDocuments } from "../mocks/searchData";
 import { validateSearchForm } from "../utils/validation";
 import "./SearchPage.css";
 import searchImg from "../assets/images/search-illustration.png";
@@ -22,29 +22,11 @@ const INITIAL_FORM = {
 };
 
 const INITIAL_ERRORS = { inn: "", docsCount: "", dateFrom: "", dateTo: "" };
-const PAGE_SIZE = 10;
-
-function renderTags(attributes) {
-  const tags = [];
-  if (attributes.isTechNews)
-    tags.push(<span key="tech" className="doc-card__tag doc-card__tag--yellow">Технические новости</span>);
-  if (attributes.isAnnouncement)
-    tags.push(<span key="announcement" className="doc-card__tag doc-card__tag--green">Анонсы и события</span>);
-  if (attributes.isDigest)
-    tags.push(<span key="digest" className="doc-card__tag doc-card__tag--orange">Сводки новостей</span>);
-  return tags;
-}
 
 function SearchPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState(INITIAL_FORM);
   const [errors, setErrors] = useState(INITIAL_ERRORS);
-  const [isResultsLoading, setIsResultsLoading] = useState(false);
-  const [showResults, setShowResults] = useState(false);
-  const [histograms, setHistograms] = useState([]);
-  const [allDocuments, setAllDocuments] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-
-  const visibleDocuments = allDocuments.slice(0, visibleCount);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -62,19 +44,8 @@ function SearchPage() {
     const nextErrors = validateSearchForm(formData);
     setErrors(nextErrors);
     if (Object.values(nextErrors).some(Boolean)) return;
-
-    setShowResults(true);
-    setIsResultsLoading(true);
-
-    setTimeout(() => {
-      setHistograms(mockHistograms);
-      setAllDocuments(mockDocuments);
-      setVisibleCount(PAGE_SIZE);
-      setIsResultsLoading(false);
-    }, 1200);
+    navigate("/results", { state: { formData } });
   };
-
-  const handleShowMore = () => setVisibleCount((c) => c + PAGE_SIZE);
 
   return (
     <div className="search-page">
@@ -191,68 +162,6 @@ function SearchPage() {
             </div>
           </section>
 
-          {showResults && (
-            <section className="results-section">
-              <h2 className="results-section__title">ОБЩАЯ СВОДКА</h2>
-
-              {isResultsLoading ? (
-                <div className="results-loader">
-                  <div className="results-loader__spinner"></div>
-                  <p>Загружаем данные...</p>
-                </div>
-              ) : (
-                <>
-                  <div className="histogram-table">
-                    <div className="histogram-table__head">
-                      <div>Период</div>
-                      <div>Всего</div>
-                      <div>Риски</div>
-                    </div>
-                    <div className="histogram-table__body">
-                      {histograms.map((item, index) => (
-                        <div className="histogram-table__column" key={index}>
-                          <div>{item.period}</div>
-                          <div>{item.total}</div>
-                          <div>{item.risks}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <h2 className="results-section__title results-section__title--docs">
-                    СПИСОК ДОКУМЕНТОВ
-                  </h2>
-
-                  <div className="documents-grid">
-                    {visibleDocuments.map((doc) => (
-                      <article className="doc-card" key={doc.id}>
-                        <div className="doc-card__meta">
-                          <span>{doc.date}</span>
-                          <a href={doc.url} target="_blank" rel="noreferrer">{doc.source}</a>
-                        </div>
-                        <h3 className="doc-card__title">{doc.title}</h3>
-                        <div className="doc-card__tags">{renderTags(doc.attributes)}</div>
-                        {doc.image && <img src={doc.image} alt={doc.title} className="doc-card__image" />}
-                        <p className="doc-card__text">{doc.text}</p>
-                        <div className="doc-card__footer">
-                          <a href={doc.url} target="_blank" rel="noreferrer" className="doc-card__button">
-                            Читать в источнике
-                          </a>
-                          <span className="doc-card__words">{doc.wordCount} слов</span>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-
-                  {visibleDocuments.length < allDocuments.length && (
-                    <button type="button" className="show-more-button" onClick={handleShowMore}>
-                      Показать больше
-                    </button>
-                  )}
-                </>
-              )}
-            </section>
-          )}
         </div>
       </main>
 
