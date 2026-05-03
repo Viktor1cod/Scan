@@ -7,6 +7,7 @@ import Tariffs from "./components/Tariffs";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import SearchPage from "./pages/SearchPage";
+import ResultsPage from "./pages/ResultsPage";
 
 function HomePage() {
   const currentPlan = "Beginner";
@@ -37,6 +38,10 @@ function App() {
       <Route
         path="/search"
         element={isAuth ? <SearchPage /> : <Navigate to="/login" replace />}
+      />
+      <Route
+        path="/results"
+        element={isAuth ? <ResultsPage /> : <Navigate to="/login" replace />}
       />
     </Routes>
   );
