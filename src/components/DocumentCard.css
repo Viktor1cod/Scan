@@ -1,0 +1,178 @@
+.doc-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* META */
+
+.doc-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.doc-card__date {
+  color: #999;
+}
+
+.doc-card__source {
+  color: #029491;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.doc-card__source:hover {
+  color: #017b79;
+}
+
+/* TITLE */
+
+.doc-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #222;
+}
+
+/* TAGS */
+
+.doc-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 24px;
+}
+
+.doc-card__tag {
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.doc-card__tag--yellow {
+  background: #ffcf76;
+  color: #7a5500;
+}
+
+.doc-card__tag--green {
+  background: #7ce3e1;
+  color: #02524f;
+}
+
+.doc-card__tag--orange {
+  background: #ffb64f;
+  color: #7a4000;
+}
+
+/* IMAGE */
+
+.doc-card__image {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  max-height: 180px;
+}
+
+/* TEXT */
+
+.doc-card__text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #444;
+  flex: 1;
+}
+
+/* FOOTER */
+
+.doc-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.doc-card__button {
+  background: #7ce3e1;
+  color: #026b68;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.doc-card__button:hover {
+  background: #5cd4d2;
+}
+
+.doc-card__words {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .doc-card {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .doc-card__title {
+    font-size: 16px;
+  }
+
+  .doc-card__image {
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 375px) {
+  .doc-card {
+    padding: 14px;
+    gap: 10px;
+    border-radius: 8px;
+  }
+
+  .doc-card__meta {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .doc-card__title {
+    font-size: 15px;
+  }
+
+  .doc-card__tag {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .doc-card__image {
+    max-height: 120px;
+    border-radius: 6px;
+  }
+
+  .doc-card__text {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .doc-card__button {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .doc-card__words {
+    font-size: 10px;
+  }
+}
