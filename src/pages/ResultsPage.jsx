@@ -3,33 +3,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Histogram from "../components/Histogram";
+import DocumentCard from "../components/DocumentCard";
 import { mockHistograms, mockDocuments } from "../mocks/searchData";
 import "./ResultsPage.css";
 
 const PAGE_SIZE = 10;
-
-function renderTags(attributes) {
-  const tags = [];
-  if (attributes.isTechNews)
-    tags.push(
-      <span key="tech" className="doc-card__tag doc-card__tag--yellow">
-        Технические новости
-      </span>
-    );
-  if (attributes.isAnnouncement)
-    tags.push(
-      <span key="ann" className="doc-card__tag doc-card__tag--green">
-        Анонсы и события
-      </span>
-    );
-  if (attributes.isDigest)
-    tags.push(
-      <span key="dig" className="doc-card__tag doc-card__tag--orange">
-        Сводки новостей
-      </span>
-    );
-  return tags;
-}
 
 function ResultsPage() {
   const location = useLocation();
@@ -80,35 +58,7 @@ function ResultsPage() {
               <h2 className="results-documents__title">СПИСОК ДОКУМЕНТОВ</h2>
               <div className="documents-grid">
                 {visibleDocuments.map((doc) => (
-                  <article key={doc.id} className="doc-card">
-                    <div className="doc-card__meta">
-                      <span>{doc.date}</span>
-                      <a href={doc.url} target="_blank" rel="noreferrer">
-                        {doc.source}
-                      </a>
-                    </div>
-                    <h3 className="doc-card__title">{doc.title}</h3>
-                    <div className="doc-card__tags">{renderTags(doc.attributes)}</div>
-                    {doc.image && (
-                      <img
-                        src={doc.image}
-                        alt={doc.title}
-                        className="doc-card__image"
-                      />
-                    )}
-                    <p className="doc-card__text">{doc.text}</p>
-                    <div className="doc-card__footer">
-                      <a
-                        href={doc.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="doc-card__button"
-                      >
-                        Читать в источнике
-                      </a>
-                      <span className="doc-card__words">{doc.wordCount} слов</span>
-                    </div>
-                  </article>
+                  <DocumentCard key={doc.id} doc={doc} />
                 ))}
               </div>
 
