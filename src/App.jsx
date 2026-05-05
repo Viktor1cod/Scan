@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import WhyUs from "./components/WhyUs";
 import Tariffs from "./components/Tariffs";
+import Faq from "./components/Faq";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import SearchPage from "./pages/SearchPage";
@@ -19,6 +20,7 @@ function HomePage() {
         <Hero />
         <WhyUs />
         <Tariffs currentPlan={currentPlan} />
+        <Faq />
       </main>
       <Footer />
     </>
