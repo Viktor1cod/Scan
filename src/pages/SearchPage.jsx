@@ -28,10 +28,19 @@ function SearchPage() {
   const [formData, setFormData] = useState(INITIAL_FORM);
   const [errors, setErrors] = useState(INITIAL_ERRORS);
 
+  const today = new Date().toISOString().split("T")[0];
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
     if (name in errors) setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    if (!(name in INITIAL_ERRORS)) return;
+    const errs = validateSearchForm(formData);
+    setErrors((prev) => ({ ...prev, [name]: errs[name] }));
   };
 
   const isFormValid = useMemo(() => {
@@ -80,6 +89,7 @@ function SearchPage() {
                     className={`search-form__input ${errors.inn ? "search-form__input--error" : ""}`}
                     value={formData.inn}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                   />
                   {errors.inn && <p className="search-form__error">{errors.inn}</p>}
 
@@ -95,9 +105,12 @@ function SearchPage() {
                     type="number"
                     name="docsCount"
                     placeholder="От 1 до 1000"
+                    min="1"
+                    max="1000"
                     className={`search-form__input ${errors.docsCount ? "search-form__input--error" : ""}`}
                     value={formData.docsCount}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                   />
                   {errors.docsCount && <p className="search-form__error">{errors.docsCount}</p>}
 
@@ -107,9 +120,11 @@ function SearchPage() {
                       <input
                         type="date"
                         name="dateFrom"
+                        max={today}
                         className={`search-form__input search-form__input--date ${errors.dateFrom ? "search-form__input--error" : ""}`}
                         value={formData.dateFrom}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                       />
                       {errors.dateFrom && <p className="search-form__error">{errors.dateFrom}</p>}
                     </div>
@@ -117,9 +132,11 @@ function SearchPage() {
                       <input
                         type="date"
                         name="dateTo"
+                        max={today}
                         className={`search-form__input search-form__input--date ${errors.dateTo ? "search-form__input--error" : ""}`}
                         value={formData.dateTo}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                       />
                       {errors.dateTo && <p className="search-form__error">{errors.dateTo}</p>}
                     </div>
