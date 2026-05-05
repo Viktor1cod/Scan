@@ -10,7 +10,9 @@ function Hero() {
       <div className="container hero__inner">
         <div className="hero__content">
           <h1 className="hero__title">
-            СЕРВИС ПО ПОИСКУ ПУБЛИКАЦИЙ О КОМПАНИИ ПО ЕГО ИНН
+            СЕРВИС ПО ПОИСКУ<br />
+            ПУБЛИКАЦИЙ О КОМПАНИИ<br />
+            ПО ЕГО ИНН
           </h1>
 
           <p className="hero__text">

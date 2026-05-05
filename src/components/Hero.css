@@ -16,9 +16,10 @@
 
 .hero__title {
   margin: 0;
-  font-size: 58px;
-  line-height: 1.1;
+  font-size: 40px;
+  line-height: 1.15;
   font-weight: 900;
+  letter-spacing: -0.5px;
 }
 
 .hero__text {
