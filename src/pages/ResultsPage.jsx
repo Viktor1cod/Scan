@@ -41,6 +41,19 @@ function ResultsPage() {
         <div className="container">
           <h1 className="results-page__title">РЕЗУЛЬТАТЫ ПОИСКА</h1>
 
+          {formData && (
+            <div className="results-page__params">
+              <span>ИНН: <b>{formData.inn}</b></span>
+              <span>Документов: <b>{formData.docsCount}</b></span>
+              {formData.dateFrom && formData.dateTo && (
+                <span>Период: <b>{formData.dateFrom} — {formData.dateTo}</b></span>
+              )}
+              {formData.tone && formData.tone !== "Любая" && (
+                <span>Тональность: <b>{formData.tone}</b></span>
+              )}
+            </div>
+          )}
+
           <section className="results-summary">
             <h2 className="results-summary__title">ОБЩАЯ СВОДКА</h2>
             {isLoading ? (

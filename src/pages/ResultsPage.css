@@ -16,6 +16,24 @@
   margin-bottom: 40px;
 }
 
+/* PARAMS */
+
+.results-page__params {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 36px;
+  padding: 14px 20px;
+  background: #fff;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.results-page__params b {
+  color: #222;
+}
+
 /* SUMMARY */
 
 .results-summary {
