@@ -323,6 +323,40 @@
   }
 }
 
+/* TABLET */
+
+@media (max-width: 768px) {
+  .search-hero__title {
+    font-size: 30px;
+  }
+
+  .search-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .search-image {
+    display: none;
+  }
+
+  .search-form {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .search-form__bottom {
+    align-items: stretch;
+  }
+
+  .search-form__submit {
+    width: 100%;
+  }
+
+  .search-form__dates {
+    flex-direction: row;
+  }
+}
+
 /* MOBILE */
 
 @media (max-width: 375px) {
